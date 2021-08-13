@@ -1,0 +1,191 @@
+//- index.pug
+doctype html
+html
+    head
+        title #{"dog"}
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        style
+            include ../css/style.css
+
+
+
+
+    body
+        header.header
+            .container
+                .header_inner
+                    .logo
+                        img(src="https://satdor780.github.io/dog/images/icons/logo.png")
+                    nav.nav
+                        a.nav-link home
+                        a.nav-link about
+                        a.nav-link service
+                        a.nav-link contact
+
+                    .input
+                        input(placeholder="search..")
+
+                    .burger
+                        span.burger_span
+
+        .intro
+            .container
+                .intro_inner
+                    .intro_content
+                        .title
+                            p First I wanted to be veterinarian
+                        .sub_title
+                            p Lorem Ipsum available but the majority have suffered alteration in some form, by injected humour randomised words.
+                        .buttons
+                            button.button Contact Us
+                            button.button Our Service
+                    .intro_img
+                        img(src='https://satdor780.github.io/dog/images/icons/doog.png')
+        mixin entry(src_img, content, entry_img)
+            .entry
+                .container
+                    .entry_inner
+                        div(class!=attributes.class_content)= content
+                            h1.entry_title As a veterinarian and lover of animals.
+                            p.entry_sub_title Lorem Ipsum available but the majoty suffered alteration in some form, by humour randomised words.
+                            button.entry_button Our Service
+
+                        div(class!=attributes.class_entry_img)= entry_img
+                            .entry_img_content
+                                <!--.img_back-->
+                                img(src=src_img)
+        +entry('https://satdor780.github.io/dog/images/images/entry.jpg')(class_content='content', class_entry_img ='entry_img')
+
+        mixin features(img1_src, img2_src, img3_src, title, item_title, item_subtitle, buy, buy_class, subtitle_class, features)
+            div(class!=attributes.features)= features
+                .container
+                    .features_inner
+                        .title
+                            h1.features_title= title
+                            p.features_subtitle Lorem Ipsum available, but the majority have suffered alteration in some form.
+
+                        .features_content
+                            .item
+                                .entry_img_block
+                                    img(src=img1_src)
+                                .item_content
+                                    .item_title= item_title
+                                    p(class!=attributes.subtitle_class)= subtitle_class = item_subtitle
+                                    button(class!=attributes.buy_class)= buy_class = buy
+
+                            .item
+                                .entry_img_block
+                                    img(src=img2_src)
+                                .item_content
+                                    .item_title= item_title
+                                    p(class!=attributes.subtitle_class)= subtitle_class
+                                    button(class!=attributes.buy_class)= buy_class = buy
+
+                            .item
+                                .entry_img_block
+                                    img(src=img3_src)
+                                .item_content
+                                    .item_title= item_title
+                                    p(class!=attributes.subtitle_class)= subtitle_class
+                                    button(class!=attributes.buy_class)= buy_class = buy
+
+        +features('https://satdor780.github.io/dog/images/images/1.jpg',
+            'https://satdor780.github.io/dog/images/images/2.jpg',
+            'https://satdor780.github.io/dog/images/images/3.jpg',
+            'title here',
+            'Veterinarian',
+            'Lorem Ipsum available, but the majority have suffered alteration in some.')(buy_class = 'none', subtitle_class='item_subtitle', features='features')
+
+
+        +entry('https://satdor780.github.io/dog/images/images/entry2.jpg')(class_content='content2 ',
+            class_entry_img ='entry_img entry_img2')
+
+
+        +features('https://satdor780.github.io/dog/images/images/features1.jpg',
+            'https://satdor780.github.io/dog/images/images/features2.jpg',
+            'https://satdor780.github.io/dog/images/images/features3.jpg',
+            'title here',
+            '$40', ' ', buy = 'buy now')(buy_class = 'button', subtitle_class='item_subtitle_none', features='features')
+
+
+
+
+
+
+        +features('https://satdor780.github.io/dog/images/images/gr6_1.jpg',
+            'https://satdor780.github.io/dog/images/images/gr6_2.jpg',
+            'https://satdor780.github.io/dog/images/images/gr6_3.jpg',
+            'The vetcare team',
+            'Jennifer Mullen', 'veterinary', ' ')(buy_class = 'none', subtitle_class='item_subtitle upper', features='features white')
+        .skills
+            .skills_bg
+                .container
+                    .skills_inner
+                        .item
+                            img(src = 'https://satdor780.github.io/dog/images/icons/Icon3.png').skills_icon
+                            p.skills_number +34793
+                            p.skills_text happy clients
+
+                        .item
+                            img(src = 'https://satdor780.github.io/dog/images/icons/Icon2.png').skills_icon
+                            p.skills_number +34793
+                            p.skills_text happy clients
+
+                        .item
+                            img(src = 'https://satdor780.github.io/dog/images/icons/Icon1.png').skills_icon
+                            p.skills_number +34793
+                            p.skills_text happy clients
+        .footer
+            .container
+                .footer_inner
+                    .footer_item
+                        h3.footer_title About
+                        ul.ul
+                            li.footer_li
+                                .footer_link
+                                    a History
+                                .footer_link
+                                    a Our Team
+                                .footer_link
+                                    a Brand Guidelines
+                                .footer_link
+                                    a Terms & Condition
+                                .footer_link
+                                    a Privacy Policy
+
+                    .footer_item
+                        h3.footer_title Service
+                        ul.ul
+                            li.footer_li
+                                .footer_link
+                                    a How to Order
+                                .footer_link
+                                    a Our Product
+                                .footer_link
+                                    a Order Status
+                                .footer_link
+                                    a Promo
+                                .footer_link
+                                    a Payment Method
+
+                    .footer_item
+                        .footer_last_content
+                            .footer_title
+                                h3 title here
+                            ul.ul
+                                li.footer_li
+                                    p Lorem Ipsum available, but the majorit
+                            .social_icon
+                                .social_item
+                                    i.fab.fa-instagram
+                                .social_item
+                                    i.fab.fa-facebook-f
+                                .social_item
+                                    i.fab.fa-twitter
+                                .social_item
+                                    i.fab.fa-whatsapp
+
+
+        script
+            include ../libs/jqvery/jquery-3.5.1.min.js
+            include ../js/script.js
